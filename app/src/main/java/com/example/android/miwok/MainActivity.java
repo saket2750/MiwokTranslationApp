@@ -15,7 +15,10 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,8 +27,44 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-    }
+        TextView numberView = (TextView) findViewById(R.id.numbers);
+        numberView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,NumbersActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView familyView = (TextView) findViewById(R.id.family);
+        familyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView colorsView = (TextView) findViewById(R.id.colors);
+        colorsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(i);
+            }
+        });
+
+      TextView phrasesView = (TextView) findViewById(R.id.phrases);
+      phrasesView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent i = new Intent(MainActivity.this, PhrasesActivity.class);
+              startActivity(i);
+          }
+      });
+
+
+     }
+
 }
