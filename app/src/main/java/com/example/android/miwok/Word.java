@@ -3,23 +3,26 @@ package com.example.android.miwok;
 import android.media.Image;
 
 public class Word {
-    public Word(String english, String mewok, int numbersImage) {
+    public Word(String english, String mewok, int numbersImage, int soundId) {
         this.english = english;
         this.mewok = mewok;
         this.numbersImage = numbersImage;
+        this.soundId = soundId;
     }
 
-    public Word(String english, String mewok) {
+    public Word(String english, String mewok,int soundId) {
         this.english = english;
         this.mewok = mewok;
+        this.soundId = soundId;
     }
 
+    private int soundId;
+
+    public int getSoundId(){
+        return soundId;
+    }
     public String getEnglish() {
         return english;
-    }
-
-    public void setEnglish(String english) {
-        this.english = english;
     }
 
     private String english;
@@ -28,18 +31,10 @@ public class Word {
         return numbersImage;
     }
 
-    public void setNumbersImage(int numbersImage) {
-        this.numbersImage = numbersImage;
-    }
-
     private int numbersImage;
 
     public String getMewok() {
         return mewok;
-    }
-
-    public void setMewok(String mewok) {
-        this.mewok = mewok;
     }
 
     private String mewok;

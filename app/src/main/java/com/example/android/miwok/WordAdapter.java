@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
         else
             imageIcon.setVisibility(View.VISIBLE);
 
+
+        listItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer player = MediaPlayer.create(view.getContext(), word.getSoundId());
+                player.start();
+                if(!player.isPlaying()){
+                    player.release();
+                }
+            }
+        });
 
         View textBackground = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), colorResourceId);
